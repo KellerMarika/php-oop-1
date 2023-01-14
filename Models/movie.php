@@ -15,7 +15,7 @@ class Movie
   private array $cast;
 
 
-  function __construct($_title, $_overview, $_lang = null, $_votes = null, $_genres=null, $_cast=null)
+  function __construct($_title, $_overview, $_genres, $_cast, $_lang = null, $_votes = null,)
   {
     $this->setTitle($_title);
     $this->setOverview($_overview);
@@ -31,9 +31,7 @@ class Movie
 
     $this->setGenres($_genres);
     $this->fetchGenresForbidden();
-
-  
-      $this->setCast($_cast);
+    $this->setCast($_cast);
   
   }
 
