@@ -3,7 +3,7 @@ const { createApp } = Vue;
 const app = createApp({
   data() {
     return {
-      a: "www.miPiaciTu"
+   
 
 
     }
@@ -11,6 +11,6 @@ const app = createApp({
   methods: {
   },
   mounted() {
-    console.log(this.a)
+    
   },
 }).mount("#app");

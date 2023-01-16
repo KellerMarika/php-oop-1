@@ -14,8 +14,10 @@ class Movie
   private bool $forbidden = false;
   private array $cast;
 
+  private string $img;
 
-  function __construct($_title, $_overview, $_genres, $_cast, $_lang = null, $_votes = null,)
+
+  function __construct($_title, $_overview, $_genres, $_cast, $_lang = null, $_votes = null, $_img=null)
   {
     $this->setTitle($_title);
     $this->setOverview($_overview);
@@ -32,6 +34,8 @@ class Movie
     $this->setGenres($_genres);
     $this->fetchGenresForbidden();
     $this->setCast($_cast);
+
+    $this->setimg($_img);
   
   }
 
@@ -49,6 +53,26 @@ class Movie
   }
 
   /*** GETTER & SETTER ***/
+  
+  /**
+   * Get the value of img
+   */
+  public function getImg()
+  {
+    return $this->img;
+  }
+
+  /**
+   * Set the value of img
+   *
+   * @return  self
+   */
+  public function setImg($_img)
+  {
+    $this->img = $_img;
+    return $this;
+  }
+
 
   /**
    * Get the value of title

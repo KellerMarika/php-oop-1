@@ -14,8 +14,12 @@ function __construct($_name,$_surname, $_birth_date){
   $this->setBirth_date($_birth_date);
 }
 
-  /*** GETTER & SETTER ***/
+public function getFullName(){
+  return $this->getName() . " " .$this->getSurname();
+}
 
+
+  /*** GETTER & SETTER ***/
 
   /**
    * Get the value of name
