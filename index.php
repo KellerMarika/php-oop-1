@@ -45,16 +45,24 @@ $movie3 = new Movie("titanic", "Nave inaffondabile affonda", $genres_List3, $act
 $movies = [];
 
 array_push($movies, $movie1, $movie2, $movie3);
-
 /* echo  '<br>'. getVoteStarsStyle(5); */
 //var_dump($movies);
 
-/* con le classi l'encode non funziona______________________________!!!!!! */
-//$jsonString = json_encode($movies, JSON_PRETTY_PRINT);
-//file_put_contents("db.json", $jsonString);
-//header("Content-Type: application/json");
-/*_________________________________________________________  */
 
+
+
+
+
+
+
+/* con le classi l'encode non funziona______________________________!!!!!! */
+/* 
+$jsonString = json_encode(get_object_vars($a), JSON_PRETTY_PRINT);
+file_put_contents("db.json", $jsonString);
+header("Content-Type: application/json");
+/*____________________________________________ */
+
+/* json_encode(get_object_vars($a), JSON_PRETTY_PRINT); */
 
 
 /* FUNCTION CRATE VOTE LIST */

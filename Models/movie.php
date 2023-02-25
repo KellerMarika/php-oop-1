@@ -8,7 +8,6 @@ class Movie
   private string $title;
   private string $overview;
   private string $lang = "EN";
-  //private $rating =rand(1,5)_______________________________________perchè no?!
   private float $rating = 0.0;
   private array $genres;
   private bool $forbidden = false;
@@ -17,7 +16,7 @@ class Movie
   private string $img;
 
 
-  function __construct($_title, $_overview, $_genres, $_cast, $_lang = null, $_votes = null, $_img=null)
+  function __construct($_title, $_overview, $_genres, $_cast, $_lang = null, $_votes = null, $_img = null)
   {
     $this->setTitle($_title);
     $this->setOverview($_overview);
@@ -25,9 +24,8 @@ class Movie
     if ($_lang) {
       $this->setLang($_lang);
     }
-    // if($_vote){$this->setVote($_vote);}__________________________________
 
-    if($_votes){
+    if ($_votes) {
       $this->setRating($_votes);
     }
 
@@ -36,14 +34,23 @@ class Movie
     $this->setCast($_cast);
 
     $this->setimg($_img);
-  
+    
+  }
+
+  public function jsonSerialize()
+  {
+    return get_object_vars($this);
   }
 
 
-/* METOD FETCHE FORBIDDEN (FROM GENRES)  */
+  /* METOD FETCHE FORBIDDEN (FROM GENRES)  */
   public function fetchGenresForbidden()
   {
-    //  foreach ($this->getGenres() as $genre) _________________________________*/ 
+
+    /* foreach ($this->getGenres() as $genre) {
+    var_dump($genre->getForbidden());
+    
+    } */
     for ($i = 0; $i < count($this->getGenres()); $i++) {
 
       if ($this->getGenres()[$i]->getForbidden()) {
@@ -53,7 +60,7 @@ class Movie
   }
 
   /*** GETTER & SETTER ***/
-  
+
   /**
    * Get the value of img
    */
@@ -144,18 +151,18 @@ class Movie
    *
    * @return  self
    */
-  public function setRating($_votes) {
+  public function setRating($_votes)
+  {
 
     if ($_votes) {
       $sum = 0;
 
       for ($i = 0; $i < count($_votes); $i++) {
-      $sum += $_votes[$i];
+        $sum += $_votes[$i];
       }
 
       $_rating = $sum / count($_votes);
-      $this->rating = sprintf("%.1f", $_rating);//floatval(sprintf("%.1f", $_rating))___________________chiedi x sottolineatura (float);
-     // $this->Rating = $_Rating;
+      $this->rating = sprintf("%.1f", $_rating);
     }
     return $this;
   }
@@ -197,7 +204,7 @@ class Movie
     $this->forbidden = $_forbidden;
     return $this;
   }
-  
+
   /**
    * Get the value of cast
    */
